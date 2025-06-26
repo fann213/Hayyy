@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Romantic Message</title>
+  <style>
+    body {
+      background: #ffdde1;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      max-width: 300px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 8px;
+      background: #ee9ca7;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff6f91;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 id="message">Hay.</h1>
+  <div id="buttons">
+    <button onclick="nextMessage()">Next</button>
+  </div>
+</div>
+
+<script>
+  const messages = [
+    "Hay.",
+    "Kamu lucu yaaa.",
+    "Aku suka sama mu.",
+    "I love you."
+  ];
+
+  let index = 0;
+
+  function nextMessage() {
+    index++;
+    if(index < messages.length){
+      document.getElementById('message').innerText = messages[index];
+      if(index === messages.length - 1){
+        // Ganti tombol jadi dua
+        document.getElementById('buttons').innerHTML = `
+          <div class="btn-group">
+            <button onclick="loveYouToo()">I love you too</button>
+            <button onclick="cant()">I can't</button>
+          </div>
+        `;
+      }
+    }
+  }
+
+  function loveYouToo() {
+    window.location.href = "https://wa.me/6285165292988?text=i+wanna+be+your+girlfriend%2C+I+LOVE+YOU";
+  }
+
+  function cant() {
+    alert("Gapapa kok, aku tetep sayang kamu. :)");
+  }
+</script>
+
+</body>
+</html>
